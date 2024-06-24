@@ -2,6 +2,10 @@ plugins {
     id 'com.android.application'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '7.3.1' // specify the version of Gradle you want to use
+}
+
 android {
     namespace 'com.example.mapp'
     compileSdk 32

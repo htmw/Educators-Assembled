@@ -1,6 +1,4 @@
 package com.example.mapp;
-
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;

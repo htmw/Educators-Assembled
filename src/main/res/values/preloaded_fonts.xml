@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/carme</item>
+        <item>@font/hind_medium</item>
+        <item>@font/montserrat_alternates_thin</item>
+        <item>@font/nunito_sans</item>
+        <item>@font/nunito_sans_bold</item>
+        <item>@font/poppins</item>
+    </array>
+</resources>

@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        float[][] output = new float[1][2];  // 模型的输出形状
+        float[][] output = new float[1][4];  // 模型的输出形状
         tflite.run(floatInput, output);
 
         int maxIndex = -1;
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        String[] classes = {"Algebra", "Geometry"};  // 替换为你的实际类别
+        String[] classes = {"Precalculus","Algebra", "Geometry","Counting & Probability"};  // 替换为你的实际类别
         outputText.setText(classes[maxIndex]);
     }
 

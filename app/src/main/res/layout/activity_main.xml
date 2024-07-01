@@ -19,7 +19,7 @@
         android:paddingStart="95dp"
         android:paddingEnd="25dp"
         android:text="@string/math_app"
-        android:textColor="@color/white"
+        android:textColor="#0D47A1"
         android:textSize="30sp" />
 
     <TextView
@@ -187,7 +187,7 @@
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/app_name"
         android:padding="5dp"
-        app:srcCompat="@drawable/Icon" />
+        app:srcCompat="@drawable/icon" />
 
 
 </RelativeLayout>

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MAPP</string>
+    <string name="math_app">Math APP</string>
+    <string name="enter">Enter your math problem here</string>
+    <string name="submit">Submit Your Problem</string>
+    <string name="help">Need some help on your homework? Go ahead and enter the question below.</string>
+    <string name="resources_list">List resources here</string>
+    <string name="personalized_header">Your personalized resources to help you study</string>
+    <string name="prob_sub">The subject area of this problem is:"</string>
+    <string name="resources_header">Resources</string>
 </resources>

@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        String[] classes = {"Precalculus","Algebra", "Geometry","Counting & Probability"};  // 替换为你的实际类别
+        String[] classes = {"Algebra","Counting & Probability","Geometry","Precalculus"};  // 替换为你的实际类别
         outputText.setText(classes[maxIndex]);
     }
 

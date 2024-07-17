@@ -90,16 +90,16 @@ public class MainActivity extends AppCompatActivity {
 
         String text = inputText.getText().toString();
         int[] input = tokenizeText(text, vocab);
-        float[][] floatInput = new float[1][MAX_INPUT_LENGTH];  // 模型期望的输入形状
+        float[][] floatInput = new float[1][MAX_INPUT_LENGTH];
         for (int i = 0; i < MAX_INPUT_LENGTH; i++) {
             if (i < input.length) {
                 floatInput[0][i] = input[i];
             } else {
-                floatInput[0][i] = 0;  // 填充0
+                floatInput[0][i] = 0;
             }
         }
 
-        float[][] output = new float[1][4];  // 模型的输出形状
+        float[][] output = new float[1][4];
         tflite.run(floatInput, output);
 
         int maxIndex = -1;
@@ -111,15 +111,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        String[] classes = {"Algebra","Counting & Probability","Geometry","Precalculus"};  // 替换为你的实际类别
-        outputText.setText(classes[maxIndex]);
+        String[] classes = {"Algebra","Counting & Probability","Geometry","Precalculus"};
+        outputText.setText("The subject area of this problem is: "+classes[maxIndex]);
     }
 
     private int[] tokenizeText(String text, Map<String, Integer> vocab) {
         String[] words = text.split(" ");
         int[] tokens = new int[words.length];
         for (int i = 0; i < words.length; i++) {
-            tokens[i] = vocab.getOrDefault(words[i], 0);  // 使用0替换无效的索引
+            tokens[i] = vocab.getOrDefault(words[i], 0);
         }
         return tokens;
     }

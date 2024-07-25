@@ -8,4 +8,5 @@
     <string name="personalized_header">Your personalized resources to help you study</string>
     <string name="prob_sub">The subject area of this problem is:"</string>
     <string name="resources_header">Resources</string>
+    <string name="welcome_message">Welcome to the Math APP!</string>
 </resources>

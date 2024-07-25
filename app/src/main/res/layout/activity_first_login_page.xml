@@ -1,21 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:background="@color/white"
+    android:clipToPadding="false"
+    tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@color/Blue"
+        android:gravity="center"
+        android:paddingStart="95dp"
+        android:paddingEnd="25dp"
+        android:text="@string/math_app"
+        android:textColor="#0D47A1"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="101dp"
+        android:layout_height="92dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/app_name"
+        android:padding="5dp"
+        android:src="@drawable/icon" />
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/nunito_sans"
+        android:padding="4dp"
+        android:paddingStart="4dp"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/welcome_message"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
     <Button
         android:id="@+id/button_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student" />
+        android:text="Student"
+        android:layout_below="@id/welcome"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/nunito_sans"
+        android:textAllCaps="true"
+        app:iconSize="16dp"/>
 
     <Button
         android:id="@+id/button_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Teacher"
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        android:layout_below="@id/button_student"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/nunito_sans"
+        android:textAllCaps="true"
+        app:iconSize="16dp"/>
+</RelativeLayout>

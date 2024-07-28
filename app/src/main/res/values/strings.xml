@@ -9,4 +9,5 @@
     <string name="prob_sub">The subject area of this problem is:"</string>
     <string name="resources_header">Resources</string>
     <string name="welcome_message">Welcome to the Math APP!</string>
+    <string name="check_my_problem">Check My Problem</string>
 </resources>

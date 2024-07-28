@@ -1,8 +1,13 @@
 package com.example.mapp;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private Button classifyButton;
     private Map<String, Integer> vocab;
     private static final String TAG = "MainActivity";
-    private static final int MAX_INPUT_LENGTH = 50;  // 模型期望的输入长度
+    private static final int MAX_INPUT_LENGTH = 50;
+
+    private SharedPreferences sharedPreferences;
+    Button viewQuestionsButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
         inputText = findViewById(R.id.input_text);
         outputText = findViewById(R.id.output_text);
         classifyButton = findViewById(R.id.classify_button);
+
+        viewQuestionsButton = findViewById(R.id.MyProblem);
+
+        sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+
+        viewQuestionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyProblemList.class);
+                startActivity(intent);
+            }
+        });
+
 
         try {
             tflite = new Interpreter(loadModelFile());
@@ -80,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
         }
         return vocab;
     }
+    private void saveQuestion(String question) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        int questionCount = sharedPreferences.getInt("question_count", 0);
+        editor.putString("question_" + questionCount, question);
+        editor.putBoolean("question_status_" + questionCount, false);
+        editor.putInt("question_count", questionCount + 1);
+        editor.apply();
+    }
 
     private void classifyText() {
         if (vocab == null) {
@@ -89,6 +120,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String text = inputText.getText().toString();
+        saveQuestion(text);
+
         int[] input = tokenizeText(text, vocab);
         float[][] floatInput = new float[1][MAX_INPUT_LENGTH];
         for (int i = 0; i < MAX_INPUT_LENGTH; i++) {

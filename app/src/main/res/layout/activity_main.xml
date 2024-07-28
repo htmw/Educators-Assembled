@@ -9,6 +9,8 @@
     tools:context=".MainActivity">
 
 
+
+
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/header"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="12dp"
         android:fontFamily="@font/nunito_sans"
@@ -65,6 +67,7 @@
         android:minHeight="48dp"
         android:paddingStart="20dp"
         android:paddingEnd="10dp"
+        android:maxLines="1"
         android:shadowColor="#9FBDD5" />
 
     <Button
@@ -75,7 +78,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="12dp"
@@ -84,13 +87,14 @@
         android:textAllCaps="true"
         app:iconSize="16dp" />
 
+
     <TextView
         android:id="@+id/output_text"
-        android:layout_width="match_parent"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/classify_button"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="7dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/radius"
@@ -104,14 +108,13 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-
     <TextView
         android:id="@+id/resources"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/output_text"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="0dp"
         android:fontFamily="@font/nunito_sans_bold"
@@ -132,7 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/resources"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
         android:fontFamily="@font/nunito_sans"
@@ -153,13 +156,14 @@
 
     <TextView
         android:id="@+id/resources_list"
-        android:layout_width="match_parent"
+        android:layout_width="381dp"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/MyProblem"
         android:layout_below="@id/resources_more"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="14dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/radius"
         android:elevation="4dp"
         android:fontFamily="@font/nunito_sans"
@@ -188,6 +192,19 @@
         android:contentDescription="@string/app_name"
         android:padding="5dp"
         app:srcCompat="@drawable/icon" />
+
+    <Button
+        android:id="@+id/MyProblem"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/check_my_problem" />
 
 
 </RelativeLayout>

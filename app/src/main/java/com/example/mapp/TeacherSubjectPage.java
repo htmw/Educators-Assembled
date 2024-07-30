@@ -17,6 +17,7 @@ public class TeacherSubjectPage extends AppCompatActivity {
         Button button1 = findViewById(R.id.button);
         Button button2 = findViewById(R.id.button2);
         Button button3 = findViewById(R.id.button3);
+        Button button4 = findViewById(R.id.button4);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,11 +39,19 @@ public class TeacherSubjectPage extends AppCompatActivity {
                 openTeacherMainPage("Precalculus");
             }
         });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTeacherMainPage("Counting and Probability");
+            }
+        });
     }
 
 
     private void openTeacherMainPage(String role){
-        Intent intent = new Intent(TeacherSubjectPage.this, TeacherMainActivity.class);
+        //        Intent intent = new Intent(TeacherSubjectPage.this, TeacherMainActivity.class);
+        Intent intent = new Intent(TeacherSubjectPage.this, MyProblemList.class);
+        QuestionAdapter.isTEACHER = true;
         intent.putExtra("Subject", role);
         startActivity(intent);
         finish();

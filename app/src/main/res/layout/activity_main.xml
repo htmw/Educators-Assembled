@@ -9,12 +9,10 @@
     tools:context=".MainActivity">
 
 
-
-
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="77dp"
         android:layout_gravity="center"
         android:background="@color/Blue"
         android:gravity="center"
@@ -154,33 +152,37 @@
         android:textStyle="bold"
         android:typeface="normal" />
 
-    <TextView
-        android:id="@+id/resources_list"
-        android:layout_width="381dp"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/MyProblem"
         android:layout_below="@id/resources_more"
+        android:layout_above="@id/MyProblem"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="14dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/radius"
-        android:elevation="4dp"
-        android:fontFamily="@font/nunito_sans"
-        android:paddingStart="4dp"
-        android:paddingLeft="4dp"
-        android:paddingTop="6dp"
-        android:paddingRight="4dp"
-        android:paddingBottom="50dp"
-        android:text="@string/resources_list"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/resources_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radius"
+            android:elevation="4dp"
+            android:fontFamily="@font/nunito_sans"
+            android:paddingStart="4dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="50dp"
+            android:text="@string/resources_list"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="101dp"
-        android:layout_height="92dp"
+        android:layout_width="104dp"
+        android:layout_height="71dp"
         android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"

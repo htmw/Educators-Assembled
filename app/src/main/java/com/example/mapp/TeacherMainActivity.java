@@ -18,13 +18,13 @@ public class TeacherMainActivity extends AppCompatActivity {
         String role = intent.getStringExtra("Subject");
 
         TextView roleTextView = findViewById(R.id.SubjectText);
-        if ("Algebra".equals(role)) {
+        /*if ("Algebra".equals(role)) {
             roleTextView.setText("AlgebraPage");
         } else if ("Geometry".equals(role)) {
             roleTextView.setText("GeometryPage");
         }
         else  if("Precalculus".equals(role)) {
             roleTextView.setText("PrecalculusPage");
-        }
+        }*/
     }
 }

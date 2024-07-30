@@ -3,6 +3,7 @@ package com.example.mapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,6 +16,7 @@ public class MyProblemList extends AppCompatActivity {
     private ArrayList<Question> questions;
     private QuestionAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class MyProblemList extends AppCompatActivity {
         questions = loadQuestions();
         adapter = new QuestionAdapter(this, questions);
         listView.setAdapter(adapter);
+
     }
 
     private ArrayList<Question> loadQuestions() {
@@ -35,7 +38,9 @@ public class MyProblemList extends AppCompatActivity {
         for (int i = 0; i < questionCount; i++) {
             String questionText = sharedPreferences.getString("question_" + i, null);
             boolean questionStatus = sharedPreferences.getBoolean("question_status_" + i, false);
-            questionsList.add(new Question(questionText, questionStatus));
+            String comment = sharedPreferences.getString("question_comment_" + i, "");
+            Question question = new Question(questionText, questionStatus,comment);
+            questionsList.add(question);
         }
 
         return questionsList;

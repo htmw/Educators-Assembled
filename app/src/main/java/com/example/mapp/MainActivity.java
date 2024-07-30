@@ -3,11 +3,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Interpreter tflite;
     private EditText inputText;
     private TextView outputText;
+    private TextView resourceList;
     private Button classifyButton;
     private Map<String, Integer> vocab;
     private static final String TAG = "MainActivity";
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;
     Button viewQuestionsButton;
+
 
 
 
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         inputText = findViewById(R.id.input_text);
         outputText = findViewById(R.id.output_text);
         classifyButton = findViewById(R.id.classify_button);
-
+        resourceList = findViewById(R.id.resources_list);
         viewQuestionsButton = findViewById(R.id.MyProblem);
 
         sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE);
@@ -59,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
 
         try {
@@ -111,6 +120,30 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt("question_count", questionCount + 1);
         editor.apply();
     }
+    private String getLinksForSubject(String subject) {
+        switch (subject) {
+            case "Precalculus":
+                return "<a href='https://www.khanacademy.org/math/precalculus'>Khan Academy - Precalculus</a><br>" +
+                        "<a href='https://www.freemathhelp.com/calculus/'>Free Math Help - Calculus</a><br>" +
+                        "<a href='https://www.coolmath.com/precalculus-review-calculus-intro'>Cool Math - Precalculus</a>";
+            case "Algebra":
+                return "<a href='https://www.khanacademy.org/math/algebra'>Khan Academy - Algebra</a><br>" +
+                        "<a href='https://www.freemathhelp.com/algebra/'>Free Math Help - Algebra</a><br>" +
+                        "<a href='https://mathandstatshelp.com/algebra/'>Math and Stats Help - Algebra</a><br>" +
+                        "<a href='https://www.mathhelp.com/algebra-1-help/?utm_campaign=purplemath&utm_source=_mh_alg1&utm_medium=course'>Math Help - Algebra 1</a>";
+            case "Geometry":
+                return "<a href='https://www.khanacademy.org/math/geometry'>Khan Academy - Geometry</a><br>" +
+                        "<a href='https://www.freemathhelp.com/geometry/'>Free Math Help - Geometry</a><br>" +
+                        "<a href='https://mathandstatshelp.com/geometry/'>Math and Stats Help - Geometry</a><br>" +
+                        "<a href='https://www.mathhelp.com/geometry-help/?utm_campaign=purplemath&utm_source=_mh_geom&utm_medium=course'>Math Help - Geometry</a>";
+            case "Counting and Probability":
+                return "<a href='https://www.khanacademy.org/math/statistics-probability'>Khan Academy - Statistics and Probability</a><br>" +
+                        "<a href='https://www.freemathhelp.com/statistics/'>Free Math Help - Statistics</a><br>" +
+                        "<a href='https://mathandstatshelp.com/'>Math and Stats Help</a>";
+            default:
+                return "No links available for this subject.";
+        }
+    }
 
     private void classifyText() {
         if (vocab == null) {
@@ -146,6 +179,9 @@ public class MainActivity extends AppCompatActivity {
 
         String[] classes = {"Algebra","Counting & Probability","Geometry","Precalculus"};
         outputText.setText("The subject area of this problem is: "+classes[maxIndex]);
+        resourceList.setText(Html.fromHtml(getLinksForSubject(classes[maxIndex])));
+        resourceList.setMovementMethod(LinkMovementMethod.getInstance());
+
     }
 
     private int[] tokenizeText(String text, Map<String, Integer> vocab) {
